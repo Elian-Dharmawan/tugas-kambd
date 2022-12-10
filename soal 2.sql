@@ -49,12 +49,14 @@ grant select,insert,update,delete on DBSEC.customer to VPD_CLERK1;
 
 #BINGUNG alter system set audit_trail=NONE scope=spfile;
 
-shutdown immediate startup create table DBSEC_dbms(
-    owner VARCHAR2(30),
-    table_name VARCHAR2(30),
-    policy_name VARCHAR2(30)
-) create
-or replace procedure DBSEC_ROW_OWNER_FUNCTION (sname VARCHAR2, tname VARCHAR2, pname VARCHAR2) is pragma autonomus_transaction;
+#aaa
+shutdown immediate startup -- create table DBSEC_dbms(
+--     owner VARCHAR2(30),
+--     table_name VARCHAR2(30),
+--     policy_name VARCHAR2(30)
+-- )
+create
+or replace procedure DBSEC_ROW_OWNER_FUNCTION (owner VARCHAR2, VARCHAR2, pname VARCHAR2) is pragma autonomus_transaction;
 
 begin
 insert into
